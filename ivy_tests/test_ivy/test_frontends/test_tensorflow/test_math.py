@@ -1227,7 +1227,7 @@ def test_tensorflow_invert_permutation(
         test_flags=test_flags,
         fn_tree=fn_tree,
         on_device=on_device,
-        x=x,
+        x=x[0],
     )
 
 

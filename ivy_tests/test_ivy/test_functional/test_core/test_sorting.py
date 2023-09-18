@@ -91,6 +91,28 @@ def test_argsort(
     )
 
 
+# invert_permutation
+@handle_test(
+    fn_tree="functional.ivy.invert_permutation",
+    dtype_x=helpers.dtype_values(
+        available_dtypes=helpers.get_dtypes("valid"),
+        min_num_dims=1,
+        min_dim_size=1,
+    ),
+    test_gradients=st.just(False),
+)
+def test_invert_permutation(*, dtype_x, test_flags, backend_fw, fn_name, on_device):
+    dtype, x = dtype_x
+    helpers.test_function(
+        input_dtypes=dtype,
+        test_flags=test_flags,
+        backend_to_test=backend_fw,
+        fn_name=fn_name,
+        on_device=on_device,
+        x=x[0],
+    )
+
+
 # msort
 @handle_test(
     fn_tree="functional.ivy.msort",
