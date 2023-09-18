@@ -325,7 +325,9 @@ def in_top_k(target, pred, k, name=None):
 
 
 @with_supported_dtypes(
-    {"2.13.0 and below": ("int32", "int64")},
+    {
+        "2.13.0 and below": ("int32", "int64"),
+    },
     "tensorflow",
 )
 @to_ivy_arrays_and_back
