@@ -7,9 +7,6 @@ import numpy as np
 # local
 import ivy_tests.test_ivy.helpers as helpers
 from ivy_tests.test_ivy.helpers import handle_test
-from ivy_tests.test_ivy.test_functional.test_core.test_statistical import (
-    _statistical_dtype_values,
-)
 
 
 # --- Helpers --- #
@@ -97,7 +94,9 @@ def test_argsort(
 # invert_permutation
 @handle_test(
     fn_tree="functional.ivy.invert_permutation",
-    dtype_x=_statistical_dtype_values(function="invert_permutation"),
+    dtype_and_x=helpers.dtype_and_values(
+        available_dtypes=helpers.get_dtypes(kind="valid"),
+    ),
     test_with_out=st.just(False),
 )
 def test_invert_permutation(*, dtype_x, test_flags, backend_fw, fn_name, on_device):

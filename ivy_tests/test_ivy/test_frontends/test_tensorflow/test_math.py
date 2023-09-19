@@ -1204,7 +1204,9 @@ def test_tensorflow_in_top_k(
 # invert_permutation
 @handle_frontend_test(
     fn_tree="tensorflow.math.invert_permutation",
-    dtype_and_x=_statistical_dtype_values(function="invert_permutation"),
+    dtype_and_x=helpers.dtype_and_values(
+        available_dtypes=helpers.get_dtypes(kind="valid"),
+    ),
     test_with_out=st.just(False),
 )
 def test_tensorflow_invert_permutation(
